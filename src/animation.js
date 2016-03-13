@@ -1,4 +1,4 @@
-export default (divsPerLine, generalDurationMs) => {
+export default (divsPerLine, drawFrequencyMs) => {
 
 const colors = [
     '#ff0000',
@@ -33,7 +33,7 @@ const colors = [
     const squareDimmension  = window.innerWidth / divsPerLine;
     const rows              = Math.floor(window.innerHeight / squareDimmension);
     const numOfDivs         = divsPerLine * rows;
-    const drawFrequencyMs   = generalDurationMs / numOfDivs;
+    // const drawFrequencyMs   = generalDurationMs / numOfDivs;
     const divs              = [];
 
     for (let i = 0; i < numOfDivs; i++) {

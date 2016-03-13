@@ -71,14 +71,14 @@
 	// delayFunc();
 	
 	document.getElementById('btn').addEventListener('click', function () {
-	    var sq = document.getElementById('squareNum').value;
-	    var dur = document.getElementById('animationDur').value;
+	    var squares = document.getElementById('squareNum').value;
+	    var delay = document.getElementById('animationDelay').value;
 	
 	    while (document.body.firstChild) {
 	        document.body.removeChild(document.body.firstChild);
 	    }
 	
-	    (0, _animation2.default)(sq, dur);
+	    (0, _animation2.default)(squares, delay);
 	});
 
 /***/ },
@@ -166,7 +166,7 @@
 	    value: true
 	});
 	
-	exports.default = function (divsPerLine, generalDurationMs) {
+	exports.default = function (divsPerLine, drawFrequencyMs) {
 	
 	    var colors = ['#ff0000', '#ff4000', '#ff8000', '#ffbf00', '#ffff00', '#bfff00', '#80ff00', '#40ff00', '#00ff00', '#00ff40', '#00ff80', '#00ffbf', '#00ffff', '#00bfff', '#0080ff', '#0040ff', '#0000ff', '#4000ff', '#8000ff', '#bf00ff', '#ff00ff', '#ff00bf', '#ff0080', '#ff0040', '#ff0000'];
 	
@@ -175,7 +175,7 @@
 	    var squareDimmension = window.innerWidth / divsPerLine;
 	    var rows = Math.floor(window.innerHeight / squareDimmension);
 	    var numOfDivs = divsPerLine * rows;
-	    var drawFrequencyMs = generalDurationMs / numOfDivs;
+	    // const drawFrequencyMs   = generalDurationMs / numOfDivs;
 	    var divs = [];
 	
 	    for (var i = 0; i < numOfDivs; i++) {

@@ -7,12 +7,12 @@ import animation  from './animation';
 // delayFunc();
 
 document.getElementById('btn').addEventListener('click', () => {
-    const sq = document.getElementById('squareNum').value;
-    const dur = document.getElementById('animationDur').value;
+    const squares = document.getElementById('squareNum').value;
+    const delay = document.getElementById('animationDelay').value;
 
     while (document.body.firstChild) {
         document.body.removeChild(document.body.firstChild);
     }
 
-    animation(sq, dur);
+    animation(squares, delay);
 });
