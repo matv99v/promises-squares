@@ -69,7 +69,17 @@
 	
 	// loadImages();
 	// delayFunc();
-	(0, _animation2.default)();
+	
+	document.getElementById('btn').addEventListener('click', function () {
+	    var sq = document.getElementById('squareNum').value;
+	    var dur = document.getElementById('animationDur').value;
+	
+	    while (document.body.firstChild) {
+	        document.body.removeChild(document.body.firstChild);
+	    }
+	
+	    (0, _animation2.default)(sq, dur);
+	});
 
 /***/ },
 /* 2 */
@@ -156,14 +166,11 @@
 	    value: true
 	});
 	
-	exports.default = function () {
+	exports.default = function (divsPerLine, generalDurationMs) {
 	
 	    var colors = ['#ff0000', '#ff4000', '#ff8000', '#ffbf00', '#ffff00', '#bfff00', '#80ff00', '#40ff00', '#00ff00', '#00ff40', '#00ff80', '#00ffbf', '#00ffff', '#00bfff', '#0080ff', '#0040ff', '#0000ff', '#4000ff', '#8000ff', '#bf00ff', '#ff00ff', '#ff00bf', '#ff0080', '#ff0040', '#ff0000'];
 	
 	    document.body.style.margin = '0';
-	
-	    var generalDurationMs = 4000;
-	    var divsPerLine = 15;
 	
 	    var squareDimmension = window.innerWidth / divsPerLine;
 	    var rows = Math.floor(window.innerHeight / squareDimmension);

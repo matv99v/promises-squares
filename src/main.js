@@ -5,4 +5,14 @@ import animation  from './animation';
 
 // loadImages();
 // delayFunc();
-animation();
+
+document.getElementById('btn').addEventListener('click', () => {
+    const sq = document.getElementById('squareNum').value;
+    const dur = document.getElementById('animationDur').value;
+
+    while (document.body.firstChild) {
+        document.body.removeChild(document.body.firstChild);
+    }
+
+    animation(sq, dur);
+});

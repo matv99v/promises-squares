@@ -1,4 +1,4 @@
-export default () => {
+export default (divsPerLine, generalDurationMs) => {
 
 const colors = [
     '#ff0000',
@@ -29,9 +29,6 @@ const colors = [
 ]
 
     document.body.style.margin = '0';
-
-    const generalDurationMs = 4000;
-    const divsPerLine       = 15;
 
     const squareDimmension  = window.innerWidth / divsPerLine;
     const rows              = Math.floor(window.innerHeight / squareDimmension);
