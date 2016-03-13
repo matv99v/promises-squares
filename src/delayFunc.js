@@ -9,6 +9,7 @@ export default () => {
             }, ms);
         });
     };
+    
 
     console.log('start!');
     delayed( foo, 2000 )

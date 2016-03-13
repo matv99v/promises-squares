@@ -68,7 +68,7 @@ const colors = [
     });
 
     promises.forEach( prm => {
-        prm.then(col => createDiv(col));
+        prm.then( col => createDiv(col) );
     });
 
 
