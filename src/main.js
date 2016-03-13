@@ -1,3 +1,8 @@
 import loadImages from './loadImages';
+import delayFunc  from './delayFunc';
+import animation  from './animation';
 
-loadImages();
+
+// loadImages();
+// delayFunc();
+animation();
