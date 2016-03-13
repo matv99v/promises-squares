@@ -30,7 +30,7 @@ const colors = [
 
     document.body.style.margin = '0';
 
-    const generalDurationMs = 1000;
+    const generalDurationMs = 10000;
     const divsPerLine = 15;
 
     const squareDimmension = window.innerWidth / divsPerLine;
