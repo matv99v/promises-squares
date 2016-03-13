@@ -30,7 +30,7 @@ const colors = [
 
     document.body.style.margin = '0';
 
-    const generalDurationMs = 10000;
+    const generalDurationMs = 4000;
     const divsPerLine = 15;
 
     const squareDimmension = window.innerWidth / divsPerLine;
@@ -53,27 +53,18 @@ const colors = [
         document.body.appendChild(square);
     };
 
-    const createPromise = (color, ms) => {
+    function waitAndDrawDiv(color) {
         return new Promise(resolve => {
-            setTimeout(() => {
-                resolve(color);
-            }, ms);
+            setTimeout( () => {
+                createDiv(color);
+                resolve();
+            }, drawFrequencyMs);
         });
-    };
+    }
 
-    let ms = drawFrequencyMs;
-    const promises = divs.map((div, index) => {
-        ms += drawFrequencyMs;
-        return createPromise(colors[index % colors.length], ms);
-    });
-
-    promises.forEach( prm => {
-        prm.then( col => createDiv(col) );
-    });
-
-
-
-
-
+    divs.reduce( (accumulation, curr, ind) => {
+        const curColor = colors[ind % colors.length];
+        return accumulation.then( () =>  waitAndDrawDiv(curColor) );
+    }, Promise.resolve() );
 
 };

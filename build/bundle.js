@@ -162,7 +162,7 @@
 	
 	    document.body.style.margin = '0';
 	
-	    var generalDurationMs = 10000;
+	    var generalDurationMs = 4000;
 	    var divsPerLine = 15;
 	
 	    var squareDimmension = window.innerWidth / divsPerLine;
@@ -185,25 +185,21 @@
 	        document.body.appendChild(square);
 	    };
 	
-	    var createPromise = function createPromise(color, ms) {
+	    function waitAndDrawDiv(color) {
 	        return new Promise(function (resolve) {
 	            setTimeout(function () {
-	                resolve(color);
-	            }, ms);
+	                createDiv(color);
+	                resolve();
+	            }, drawFrequencyMs);
 	        });
-	    };
+	    }
 	
-	    var ms = drawFrequencyMs;
-	    var promises = divs.map(function (div, index) {
-	        ms += drawFrequencyMs;
-	        return createPromise(colors[index % colors.length], ms);
-	    });
-	
-	    promises.forEach(function (prm) {
-	        prm.then(function (col) {
-	            return createDiv(col);
+	    divs.reduce(function (accumulation, curr, ind) {
+	        var curColor = colors[ind % colors.length];
+	        return accumulation.then(function () {
+	            return waitAndDrawDiv(curColor);
 	        });
-	    });
+	    }, Promise.resolve());
 	};
 
 /***/ }
