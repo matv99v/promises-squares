@@ -31,24 +31,24 @@ const colors = [
     document.body.style.margin = '0';
 
     const generalDurationMs = 4000;
-    const divsPerLine = 15;
+    const divsPerLine       = 15;
 
-    const squareDimmension = window.innerWidth / divsPerLine;
-    const rows = Math.floor(window.innerHeight / squareDimmension);
-    const numOfDivs = divsPerLine * rows;
-    const drawFrequencyMs = generalDurationMs / numOfDivs;
-    const divs = [];
+    const squareDimmension  = window.innerWidth / divsPerLine;
+    const rows              = Math.floor(window.innerHeight / squareDimmension);
+    const numOfDivs         = divsPerLine * rows;
+    const drawFrequencyMs   = generalDurationMs / numOfDivs;
+    const divs              = [];
 
     for (let i = 0; i < numOfDivs; i++) {
         divs.push(null);
     }
 
     const createDiv = (color) => {
-        const square = document.createElement('div');
-        square.style.width = squareDimmension + 'px';
-        square.style.height = squareDimmension + 'px';
-        square.style.display = 'inline-block';
-        square.style.float = 'left';
+        const square                 = document.createElement('div');
+        square.style.width           = squareDimmension + 'px';
+        square.style.height          = squareDimmension + 'px';
+        square.style.display         = 'inline-block';
+        square.style.float           = 'left';
         square.style.backgroundColor = color;
         document.body.appendChild(square);
     };
